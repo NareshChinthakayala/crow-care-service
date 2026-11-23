@@ -1,0 +1,25 @@
+# Common settings for all profiles.
+# Profile-specific settings live in application-dev.yml and application-test.yml.
+# Pick a profile with:  SPRING_PROFILES_ACTIVE=test   or   -Dspring-boot.run.profiles=test
+spring:
+  application:
+    name: crown-care-service
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+  jpa:
+    open-in-view: false
+
+server:
+  port: 4041
+
+jwt:
+  access-token-expiry-ms: 900000        # 15 minutes
+  refresh-token-expiry-ms: 604800000    # 7 days
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha

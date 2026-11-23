@@ -1,0 +1,15 @@
+package com.crown.care.dto;
+
+import com.crown.care.entity.Role;
+
+public record UserResponse(
+        Long id,
+        String fullName,
+        String email,
+        String phone,
+        Role role,
+        String employeeCode,
+        Long salonId,
+        String salonName
+) {
+}

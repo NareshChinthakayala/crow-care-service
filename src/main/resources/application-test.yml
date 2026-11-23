@@ -1,0 +1,26 @@
+# TEST profile - shared test/QA environment (separate database)
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/postgres?currentSchema=crown_care_test}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:Naresh@6765}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        default_schema: crown_care_test
+        hbm2ddl:
+          create_namespaces: true   # creates the crown_care_test schema if missing
+
+jwt:
+  # must be at least 32 characters (256 bits) for HS256
+  secret: ${JWT_SECRET:crowncare-test-secret-key-change-me-please-123456}
+
+app:
+  seed-demo-data: true
+
+logging:
+  level:
+    com.crown.care: INFO
